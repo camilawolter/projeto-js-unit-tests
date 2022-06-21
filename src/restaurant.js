@@ -94,15 +94,15 @@
 // DICA: para isso, você precisará percorrer tanto o objeto da chave `food` quanto o objeto da chave `drink`.
 
 const createMenu = (objeto) => {
-  let menuRestaurant = {};
-  let orderMenu = (request) => menuRestaurant.consumption.push(request);
+  let meuRestaurante = {};
+  let orderMenu = (request) => meuRestaurante.consumption.push(request);
 
-  menuRestaurant.fetchMenu = () => objeto;
-  menuRestaurant.consumption = [];
-  menuRestaurant.order = orderMenu;
-  menuRestaurant.pay = () => {
+  meuRestaurante.fetchMenu = () => objeto;
+  meuRestaurante.consumption = [];
+  meuRestaurante.order = orderMenu;
+  meuRestaurante.pay = () => {
     let totalPay = 0;
-    for (let index of menuRestaurant.consumption) {
+    for (let index of meuRestaurante.consumption) {
       if (objeto.food[index] !== undefined) {
         totalPay += objeto.food[index];
       }
@@ -112,7 +112,7 @@ const createMenu = (objeto) => {
     }
     return totalPay * 1.1;
   };
-  return menuRestaurant;
+  return meuRestaurante;
 };
 
 module.exports = createMenu;
